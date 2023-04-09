@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Transformer Testing System</title>
+	 <link rel="stylesheet" href="/static/css/Home.css">
+</head>
+<body>
+	<header>
+		<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="">Contact</a></li>
+    <li><button id="login-btn">Log in</button></li>
+    <li id="test-menu-link" style="display:none;"><a href="/test">Test Menu</a></li>
+  </ul>
+</nav>
+
+		<h1>Transformer Testing System</h1>
+	</header>
+ <!-- Add the login pop-up form -->
+	<div id="login-modal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Login</h2>
+			<form>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required>
+				<button type="submit" id="btn">Log in</button>
+				<p class="link">Don't have an account?</p>
+				<p align="center"><a href="/SignUp" class="modal-link">Sign up here</a></p>
+			</form>
+		</div>
+	</div>
+<!--home Section-->
+	<section class="home" id="home">
+    <div class="content">
+
+    </div>
+
+  </section>
+	  <!-- Add the about section -->
+  <section class="about" id="about">
+    <div class="content">
+      <h2>About Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor magna ut risus sollicitudin lobortis. Fusce ac ipsum nulla. Nulla facilisi. Aliquam lacinia ante ut risus interdum, id commodo justo suscipit. Proin laoreet nibh euismod bibendum euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae mauris eget arcu iaculis dignissim. Ut posuere rutrum odio, eget gravida tellus faucibus in. Aliquam erat volutpat. In fringilla augue eget ex dignissim, sed euismod purus pretium. Sed non dui sit amet ante feugiat commodo. Mauris dictum libero vel dolor malesuada, eu iaculis quam commodo.</p>
+    </div>
+  </section>
+
+  <!-- Add the contact section -->
+  <section class="contact" id="contact">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>Phone: 555-1234</p>
+      <p>Email: info@transformertesting.com</p>
+      <p>Address: 123 Main St, Anytown USA</p>
+    </div>
+  </section>
+
+
+	<footer>
+		<p>&copy; 2023 Transformer Testing System</p>
+	</footer>
+  <!-- Use JavaScript to show/hide the login pop-up form -->
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script>
+  // Use JavaScript to show/hide the login pop-up form
+  var loginModal = document.getElementById("login-modal");
+  var loginBtn = document.getElementById("login-btn");
+  var closeBtn = document.getElementsByClassName("close")[0];
+  var loginForm = document.querySelector("#login-modal form");
+  var testMenuLink = document.getElementById("test-menu-link");
+
+  loginBtn.onclick = function () {
+    loginModal.style.display = "block";
+  };
+
+  closeBtn.onclick = function () {
+    loginModal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == loginModal) {
+      loginModal.style.display = "none";
+    }
+  };
+
+  // Update the loginForm event listener to show the Test Menu link after successful login
+  loginForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  let email = document.querySelector("input[type='email']").value;
+  let password = document.querySelector("input[type='password']").value;
+
+  let resp = await axios
+    .post("/", { email, password })
+    .then((response) => {
+      if (response.data == "Invalid Credentials") {
+          alert("Invalid Credentials");
+      } else {
+        if (response.data.role == "1") {
+          window.location.href = "/admin";
+        } else {
+          loginModal.style.display = "none"; // Hide the login form
+          testMenuLink.style.display = "block"; // Show the Test Menu link
+          alert("Login Successfully");
+        }
+      }
+    })
+    .catch((error) => {
+      alert(error.response.data);
+    });
+});
+
+ 
+</script>
+
+</body>
+</html>

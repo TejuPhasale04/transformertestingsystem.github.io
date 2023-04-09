@@ -1,0 +1,100 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ff7200;
+	color: #fff;
+	padding: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+  }
+  
+  .navbar ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .navbar li {
+	margin-right: 20px;
+  }
+  
+  .navbar a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+  }
+  
+
+body {
+	 width:100%;
+	background:linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(TTS.png);
+	background-position: center;
+	background-size:cover;
+	height:109vh;
+  }
+  
+  .content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  .form {
+	background-color: white;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  h1 {
+	margin-bottom: 20px;
+	font-size: 30px;
+	text-align: center;
+	color: #444444;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+	padding: 10px;
+	width: 100%;
+	margin: 10px 0;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	margin-top: 10px;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .link {
+	margin-top: 20px;
+	text-align: center;
+	color: #777777;
+	font-size: 16px;
+  }
+  
+  a {
+	color: #4CAF50;
+	text-decoration: none;
+  }
+  

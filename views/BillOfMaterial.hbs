@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Admin</title>
+
+   <link rel="stylesheet" href="/static/css/Home.css">
+    	  <style>
+         * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background:linear-gradient(to top,rgba(243, 148, 24, 0.5)50%,rgba(243, 148, 24, 0.5)50%);
+        }
+        .content {
+           background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 1000px;
+            margin-left: 300px;
+            margin-top: 40px;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+             width: 100%;
+              display: inline-block;
+   
+        }
+        form label {
+            display: inline-block;
+            margin: 10px;
+            width: 300px;
+            text-align: right;
+        }
+        form input[type="number"] {
+            margin: 10px;
+            padding: 5px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+             display: inline-block;
+        }
+        form input[type="submit"] {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+             display: inline-block;
+        }
+        form input[type="submit"]:hover {
+            background-color: #3e8e41;
+            
+        }
+     h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #000; /* Change #000 to the color you want */
+}
+
+    </style>
+</head>
+   	<header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="#">Bill OF Material</a></li>
+				
+		</nav>
+		<h1>Transformer Testing System</h1>
+		<h1>Welcome Admin</h1>
+	</header>
+    <section>
+        <div class="content">
+        <div class="form" id="myForm">
+        <form method="POST" action="/admin">
+          <div>
+            <h1>Welcome Admin</h1>
+          </div>
+            
+          
+            <label for="winding-resistance-meter">Winding Resistance Meter (1A/10A):</label>
+            <input type="number" id="winding-resistance-meter" name="windingResistanceMeterPrice" placeholder="Enter price">
+            <input type="number" id="winding-resistance-meter-discount" name="windingResistanceMeterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="insulation-resistance-tester">Insulation Resistance Tester (1kV/5kV):</label>
+            <input type="number" id="insulation-resistance-tester" name="insulationResistanceTesterPrice" placeholder="Enter price">
+            <input type="number" id="insulation-resistance-tester-discount" name="insulationResistanceTesterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="voltage-ratio-meter">Voltage Ratio Meter:</label>
+            <input type="number" id="voltage-ratio-meter" name="voltageRatioMeterPrice" placeholder="Enter price">
+            <input type="number" id="voltage-ratio-meter-discount" name="voltageRatioMeterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="hv-tester">HV Tester (=33*2+2)kV, ----mA:</label>
+            <input type="number" id="hv-tester" name="hvTesterPrice" placeholder="Enter price">
+            <input type="number" id="hv-tester-discount" name="hvTesterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="mg-set">MG Set (100Hz, 0-470V), ------KVA:</label>
+            <input type="number" id="mg-set" name="mgSetPrice" placeholder="Enter price">
+            <input type="number" id="mg-set-discount" name="mgSetDiscount" placeholder="Enter discount">
+            <br>
+            <label for="test-bench">Test Bench:</label>
+            <input type="number" id="test-bench" name="testBenchPrice" placeholder="Enter price">
+            <input type="number" id="test-bench-discount" name="testBenchDiscount" placeholder="Enter discount">
+            <br>
+            <label for="power-panel">Power Panel:</label>
+            <input type="number" id="power-panel" name="powerPanelPrice" placeholder="Enter price">
+            <input type="number" id="power-panel-discount" name="powerPanelDiscount" placeholder="Enter discount">
+            <br>
+            <label for="voltage-regulator">Voltage Regulator upto 95A:</label>
+            <input type="number" id="voltage-regulator" name="voltageRegulatorPrice" placeholder="Enter price">
+            <input type="number" id="voltage-regulator-discount" name="voltageRegulatorPrice" placeholder="Enter discount">
+            <br>
+            <label for="booster-transformer">Booster Transformer Upto 66KVA:</label>
+            <input type="number" id="booster-transformer" name="boosterTransformerPrice" placeholder="Enter price">
+            <input type="number" id="booster-transformer-discount" name="boosterTransformerDiscount" placeholder="Enter discount">
+            <br>
+            <label for="cts">CTs (From 2A to 18A):</label>
+            <input type="number" id="cts" name="ctsPrice" placeholder="Enter price">
+            <input type="number" id="cts-discount" name="ctsDiscount" placeholder="Enter discount">
+            <br>
+            <label for="current-transformer">Current Transformer (5A/1A):</label>
+            <input type="number" id="current-transformer" name="currentTransformerPrice" placeholder="Enter price">
+            <input type="number" id="current-transformer-discount" name="currentTransformerDiscount" placeholder="Enter discount">
+           <br>
+            <label for="pts">PTs up to 11kV:</label> 
+            <input type="number" id="pts" name="ptsPrice" placeholder="Enter price">
+            <input type="number" id="pts-discount" name="ptsDiscount" placeholder="Enter discount">
+            <br>
+            <label for="power-analyzer">Power Analyzer(Harmonic):</label>
+            <input type="number" id="power-analyzer" name="powerAnalyzerPrice" placeholder="Enter price">
+            <input type="number" id="power-analyzer-discount" name="powerAnalyzerDiscount" placeholder="Enter discount">
+            <br>
+            <label for="isolator-switch">Isolator Switch (For Temperature Rise Test) upto 20A:</label>
+            <input type="number" id="isolator-switch" name="isolatorSwitchPrice" placeholder="Enter price">
+            <input type="number" id="isolator-switch-discount" name="isolatorSwitchDiscount" placeholder="Enter discount">
+            <br>
+            <label for="temperature-scanner">Temperature Scanner:</label>
+            <input type="number" id="temperature-scanner" name="temperatureScannerPrice" placeholder="Enter price">
+            <input type="number" id="temperature-scanner-discount" name="temperatureScannerDiscount" placeholder="Enter discount">
+            <br>
+            <label for="rtd-sensor">RTD PT 100 Sensor:</label>
+            <input type="number" id="rtd-sensor" name="rtdSensorPrice" placeholder="Enter price">
+            <input type="number" id="rtd-sensor-discount" name="rtdSensorDiscount" placeholder="Enter discount">
+            <br>
+            <label for="multimeter">Multimeter:</label>
+            <input type="number" id="multimeter" name="multimeterPrice" placeholder="Enter price">
+            <input type="number" id="multimeter-discount" name="multimeterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="impulse-tester">Impulse Tester:</label>
+            <input type="number" id="impulse-tester" name="impulseTesterPrice" placeholder="Enter price">
+            <input type="number" id="impulse-tester-discount" name="impulseTesterDiscount" placeholder="Enter discount">
+            <br>
+            <label for="pd-tester">PD Tester:</label>
+            <input type="number" id="pd-tester" name="pdTesterPrice" placeholder="Enter price">
+            <input type="number" id="pd-tester-discount" name="pdTesterDiscount" placeholder="Enter discount">
+            <br>
+            <button type="submit">Submit</button>
+            
+        </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const form = document.querySelector('#myForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            try {
+                const response = await axios.post('/BillOfMaterial', Object.fromEntries(formData));
+                alert(response.data);
+            } catch (error) {
+                alert(error.response.data);
+            }
+        });
+    </script> 
+    </section>
+</html>

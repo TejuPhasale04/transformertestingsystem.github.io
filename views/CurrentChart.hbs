@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="/static/css/CurrentChart.css">
+   <link rel="stylesheet" href="/static/css/Home.css">
+    <title>Current Chart </title>
+</head>
+<body>
+      <header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/">LogOut</a></li>
+                <li><a href="/test">Test Menu</a></li>
+                <li><a href="/equipmentRating">Equipment Rating</a></li>
+                <li><a href="/currentChart">Current Chart</a></li>
+                <li><a href="/BOM"></a></li>
+			</ul>
+		</nav>
+		<h1>Transformer Testing System</h1>
+	</header>
+    <section class="body" style="background-color: rgb(166, 166, 230);">
+      <div class="container">
+            <div class="heading">Current Chart</div>
+            <form >
+                <table>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                           <span class="details">Transformer Rating:</span> 
+                        </td>
+                        <td>
+                            <input type="number" id="rating" value="{{kva}}" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">HV Voltage(KVA): </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="HV" value="{{HV}}" readonly >
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                        <tr>
+                            <td>
+                                <span class="details">Full Load Current: </span> 
+                            </td>
+                            <td>
+                                <input type="text" id="FullLoadCurrent" readonly>
+                            </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">LV Voltage: </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="LV" value="{{LV}}" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">No Load Current: </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="NoLoadCurrent" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Max CI Tap:</span> 
+                        </td>
+                        <td>
+                            <input type="text" id="MaxCITap" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Min CT Tap:</span> 
+                        </td>
+                        <td>
+                            <input type="text" id="MinCTTap" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                </table>
+                   <div class="button">
+    
+                        <input type="reset" value="Clear">
+                        <input type="button" value="Calculate" id="btn" onclick="Calculation()">
+                    
+                    </div>
+            </form>
+        </div>
+    </div>
+    </section>
+    <footer>
+		<p>&copy; 2023 Transformer Testing System</p>
+	</footer>
+    <script>
+        function Calculation(){
+            var kva=document.getElementById("rating").value;
+            var HV=document.getElementById("HV").value;
+            var LV=document.getElementById("LV").value;
+            var FullLoadCurrent=(kva/HV)/1.7321;
+            var NoLoadCurrent=((kva/LV)/1.7321)*0.02;
+            let num1 = FullLoadCurrent;
+            let MaxCTTap = Math.ceil(num1);
+            let num2=NoLoadCurrent;
+            let MinCTTap=Math.ceil(num2);
+            
+            document.getElementById("FullLoadCurrent").value=FullLoadCurrent;
+            document.getElementById("NoLoadCurrent").value=NoLoadCurrent;
+            document.getElementById("MaxCITap").value=MaxCTTap;
+            document.getElementById("MinCTTap").value=MinCTTap;
+        }
+         
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script>
+            let btn=document.querySelector('#btn');
+            btn.addEventListener('click',async function(e){
+            e.preventDefault();
+            let rating=document.querySelector("#rating").value;
+            let HV=document.querySelector("#HV").value;
+            let FullLoadCurrent=document.querySelector("#FullLoadCurrent").value;
+            let LV=document.querySelector("#LV").value; 
+            let NoLoadCurrent=document.querySelector("#NoLoadCurrent").value;
+            let MaxCITap=document.querySelector("#MaxCITap").value;
+            let MinCTTap=document.querySelector("#MinCTTap").value;
+            
+            let resp=await axios.post('/CurrentChart',{rating,HV,FullLoadCurrent,LV,NoLoadCurrent,MaxCITap,MinCTTap}); 
+              
+            if (resp.status === 200) {
+            let ratingMenu = document.querySelector('ul');
+            let newMenuItem = document.createElement('li');
+            let link = document.createElement('a');
+            link.setAttribute('href', '/BOM');
+            link.textContent = 'Bill Of Material';
+            newMenuItem.appendChild(link);
+            ratingMenu.appendChild(newMenuItem);
+        } 
+         })
+    
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/EquipmentRating.css">
+    <link rel="stylesheet" href="/static/css/Home.css">
+    <title>Equipment Rating</title>
+</head>
+<body>
+     <header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+                <li><a href="/">Log out</a></li> <!-- Add login button/link -->
+                <li><a href="/test">Test Menu</a></li>
+                <li><a href="/equipmentRating">Equipment Rating</a></li>
+                <li><a href="/currentChart"></a></li>
+			</ul>
+		</nav>
+		<h1>Transformer Testing System</h1>
+	</header>
+    <section class="body" style="background-color: rgb(166, 166, 230);">
+
+
+       <div class="container">
+           <h6> <div class="heading" align="center">Equipment Rating</div></h6>
+            <form>
+                <table>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Customer Name </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="CustomerName" required>
+                        </td>
+                    </tr>
+                    </div>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Ref Standard </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="RefStandard" value="IS555" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Max kVa </span> 
+                        </td>
+                        <td>
+                            <input type="number" id="MaxkVa" required>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">LV Side Voltage (KV)</span> 
+                        </td>
+                        <td>
+                            <input type="text" id="LVSideVoltage" required>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">HV Side Voltage (KV)</span> 
+                        </td>
+                        <td>
+                            <input type="text" id="HVSideVoltage" required>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">At Max Impedance </span> 
+                        </td>
+                        <td>
+                            <input type="number" id="AtMaxImpedance" value="0" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="number">At Min Impedance </span> 
+                        </td>
+                        <td>
+                            <input type="number" id="AtMinImpedance" value="0" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">For Tempture Rise Test </span> 
+                        </td>
+                        <td>
+                            
+                            <input type="text" id="Temp" value={{t2}} >
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Booster Transformer  </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="BoosterTransformer" readonly> 
+                        </td>
+                    </tr>
+                    </div>
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Booster Input Current </span> 
+                        </td>
+                        <td>
+                            <input type="text" id="BoosterInputCurrent" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                   
+                    <div class="card-details">
+                    </div>
+
+                    <div class="card-details">
+                    <tr>
+                        <td>
+                            <span class="details">Dimmer O/P Current Rating </span>
+                        </td>
+                        <td> 
+                            <input type="text" id="Dimmer" readonly>
+                        </td>
+                    </tr>
+                    </div>
+                </table>
+                    <div class="button">
+                        <input type="reset" value="Clear">
+                        <input type="button" value="Calculate" id="btn" onclick=" calculateVoltage()">
+                    </div>
+            </form>
+        </div>
+    </div>
+    </section>
+    <footer>
+		<p>&copy; 2023 Transformer Testing System</p>
+	</footer>
+    <script>
+       
+        function calculateVoltage(){
+            var KVA=document.getElementById("MaxkVa").value; 
+            var temp=document.getElementById("Temp").value;
+            var Max;
+            var Min;
+            var testValue;
+             var booster=0;
+            if(temp=="Temperature"){
+                testValue=KVA*(10/100);
+                document.getElementById("Temp").value=testValue;
+            }
+            else{
+                 document.getElementById("Temp").value=0;
+            }
+            if(temp!="Temperature"){
+                    booster=document.getElementById("BoosterTransformer").value=0;
+                    document.getElementById("BoosterInputCurrent").value=0;
+                    document.getElementById("Dimmer").value=0;
+
+            }
+            else{
+                 booster=document.getElementById("BoosterTransformer").value=testValue;
+                var boosterInput=booster*KVA*440*1.732;
+                document.getElementById("BoosterInputCurrent").value=boosterInput;
+                var DimmerOP=boosterInput*(KVA*(110/100));
+                document.getElementById("Dimmer").value=DimmerOP;
+
+            }
+           
+             if(KVA<=630){
+                Max=KVA*(5/100);
+                Min=KVA*(4/100);
+               document.getElementById("AtMaxImpedance").value=Max;
+               document.getElementById("AtMinImpedance").value=Min;
+             }
+             else if(KVA<=1250 && KVA>=631){
+                Max=KVA*(6/100);
+                Min=KVA*(5/100);
+                document.getElementById("AtMaxImpedance").value=Max;
+                document.getElementById("AtMinImpedance").value=Min;
+             } 
+             else if(KVA<=2500 && KVA>=1251){
+                Max=KVA*(8/100);
+                Min=KVA*(6/100);
+               document.getElementById("AtMaxImpedance").value=Max;
+               document.getElementById("AtMinImpedance").value=Min;
+             }
+            else if(KVA<=6300 &&KVA>=2501){
+                Max=KVA*(9/100);
+                Min=KVA*(7/100);
+               document.getElementById("AtMaxImpedance").value=Max;
+               document.getElementById("AtMinImpedance").value=Min;
+             }
+             else if(KVA<=10000 &&KVA>=6301){
+                Max=KVA*(10/100);
+                Min=KVA*(8/100);
+               document.getElementById("AtMaxImpedance").value=Max;
+               document.getElementById("AtMinImpedance").value=Min;
+             
+             }
+           
+        }
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script>
+            let btn=document.querySelector('#btn');
+            btn.addEventListener('click',async function(e){
+            e.preventDefault();
+            let CustomerName=document.querySelector("#CustomerName").value;
+            let RefStandard=document.querySelector("#RefStandard").value; 
+            let MaxkVa=document.querySelector("#MaxkVa").value;
+            let LVSideVoltage=document.querySelector("#LVSideVoltage").value;
+            let HVSideVoltage=document.querySelector("#HVSideVoltage").value;
+            let AtMaxImpedance=document.querySelector("#AtMaxImpedance").value;
+            let AtMinImpedance=document.querySelector("#AtMinImpedance").value;
+            let Temp=document.querySelector("#Temp").value;
+            let BoosterTransformer=document.querySelector("#BoosterTransformer").value;
+            let BoosterInputCurrent =document.querySelector("#BoosterInputCurrent ").value;
+            let Dimmer=document.querySelector("#Dimmer").value;
+            let resp=await axios.post('/EquipmentRating',{CustomerName,RefStandard,MaxkVa,LVSideVoltage,HVSideVoltage,AtMaxImpedance,AtMinImpedance,Temp,BoosterTransformer,BoosterInputCurrent,Dimmer});     
+         if (resp.status === 200) {
+            let ratingMenu = document.querySelector('ul');
+            let newMenuItem = document.createElement('li');
+            let link = document.createElement('a');
+            link.setAttribute('href', '/currentChart');
+            link.textContent = 'Current Chart';
+            newMenuItem.appendChild(link);
+            ratingMenu.appendChild(newMenuItem);
+        }
+});
+        
+      </script>
+</body>
+</html>

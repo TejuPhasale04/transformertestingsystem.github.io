@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="../public/css/login.css">-->
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Login Form</title>
+</head>
+<body>
+   <div class="main">
+     
+    <div class="content">
+        <div class="form" id="myForm">
+        <form >
+            <h1>Login Here</h1>
+            <input type="email" placeholder="Enter Email Here" name="email" required>
+        
+            <input type="password" placeholder="Enter Password Here" name="psw" required>
+            
+            <button  id="btn">Login</button>
+            
+            <p class="link">Don't have an account</p><br>
+            <p align="center"><a href="/SignUp">Sign up here</a></p>
+        </form>
+        
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+       let btn=document.querySelector('#btn');
+        btn.addEventListener('click',async function(e){
+        e.preventDefault();
+        let email=document.querySelector("input[type='email']").value;
+        let password=document.querySelector("input[type='password']").value;
+        
+        let resp = await axios.post('/login', { email, password })
+            .then(response => {
+            if(response.data=="Invalid Credentials"){
+                alert(response.data);
+            } else{
+                if(response.data.role=="1"){
+                window.location.href = '/admin';
+                } else{
+                   window.location.href = '/test';
+                }
+                alert("Login Successfully");
+            }
+            })
+            .catch(error => {
+            alert(error.response.data);
+            });
+        });
+</script>
+</body>
+</html>

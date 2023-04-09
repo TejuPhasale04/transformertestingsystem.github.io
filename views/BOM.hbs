@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="/static/css/BOM.css">
+   <link rel="stylesheet" href="/static/css/Home.css">
+    <title>Bill of Material</title>
+	
+
+</head>
+<body>
+  <header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/">Log Out</a></li>
+				<li><a href="/test">Test Menu</a></li>
+                <li><a href="/equipmentRating">Equipment Rating</a></li>
+                <li><a href="/currentChart">Current Chart</a></li>
+                <li><a href="/BOM">BOM</a></li>
+			</ul>
+		</nav>
+		
+		<h1>Transformer Testing System</h1>
+	</header>
+	<section class="body"  style="background-color: rgb(112, 112, 211);">
+
+            <form  style="background-color: rgb(230, 230, 245);">
+                <table class="center">
+                    <tr>
+					<th>Sr.No.</th>
+                    <th>Description.</th> 
+				    <th >Quantity.</th>
+					<th >Price (Per Unit)</th>
+				    <th >discount</th>
+					<th >Unit purchase cost</th>
+					<th >Total purchase cost</th>
+                    </tr> 
+                    <tr>
+							<td>1</td>
+							<td>Winding Resistance Meter (1A /10A):</td>
+							<td><input type="text" class="qty" id="qty1" value="0"></td>
+							<td><input type="text" class="price" value="100" id="price1" readonly></td>
+							<td><input type="text" class="discount" value="10" id="discount1" readonly></td>
+							<td><input type="text" class="cost" id="cost1" readonly></td>
+							<td><input type="text" class="totalcost" id="totalcost1" readonly></td>
+						</tr>
+					<tr>
+							<td>2</td>
+							<td>Insulation Resistance Tester, (1kV /5kV)</td>
+							<td><input type="text" class="qty" id="qty2"  value="0" ></td>
+							<td><input type="text" class="price"  id="price2" value="10" readonly></td>
+							<td><input type="text" class="discount" id="discount2" value="0"  readonly></td>
+							<td><input type="text" class="cost" id="cost2" readonly></td>
+							<td><input type="text" class="totalcost" id="totalcost2"  readonly></td>
+						</tr>
+					
+					<tr>
+                        <td >3</td>
+                        <td>Voltage Ratio Meter</td>
+						<td><input type="text" class="3" id="qty3"  value="0"></td>
+						<td><input type="text"  class="3"  id="price3" value="10" readonly></td>
+						<td><input type="text"  class="3" id="discount3" value="0" readonly></td>
+						<td><input type="text"  class="3" id="cost3" readonly></td>
+						<td><input type="text"  class="3" id="totalcost3" readonly></td>
+                    </tr>
+					<tr>
+                        <td >4</td>
+                        <td>HV Tester (=33*2+2)kV, ----mA</td>
+						<td><input type="text" class="4" id="qty4"  value="0"></td>
+						<td><input type="text"  class="4"  id="price4"  value="10" readonly></td>
+						<td><input type="text"  class="4" id="discount4" value="0" readonly></td>
+						<td><input type="text"  class="4"  id="cost4" readonly></td>
+						<td><input type="text"  class="4" id="totalcost4" readonly></td>
+                    </tr>
+                    <tr>
+                        <td >5</td>
+                        <td>MG Set, (100Hz, 0-470V), ------KVA</td>
+						<td><input type="text" class="5" id="qty5"  value="0"></td>
+						<td><input type="text"  class="5"  id="price5" value="10" readonly></td>
+						<td><input type="text"  class="5"  id="discount5" value="0" readonly></td>
+						<td><input type="text"  class="5" id="cost5"  readonly></td>
+						<td><input type="text"  class="5" id="totalcost5"  readonly></td>
+                    </tr>
+					<tr>
+                        <td >6</td>
+                        <td>Test Bench</td>
+						<td><input type="text" class="6" id="qty6"  value="0"></td>
+						<td><input type="text"  class="6"  id="price6" value="10" readonly></td>
+						<td><input type="text"  class="6" id="discount6" value="0" readonly></td>
+						<td><input type="text"  class="6"  id="cost6"  readonly></td>
+						<td><input type="text"  class="6"  id="totalcost6" readonly></td>
+                    </tr>
+					<tr>
+                        <td>7</td>
+                        <td>Power Panel	</td>
+						<td><input type="text" class="7" id="qty7"  value="0" ></td>
+						<td><input type="text"  class="7"  id="price7" value="10" readonly></td>
+						<td><input type="text"  class="7"  id="discount7" value="0" readonly></td>
+						<td><input type="text"  class="7"  id="cost7"  readonly></td>
+						<td><input type="text"  class="7"  id="totalcost7" readonly></td>
+                    </tr>
+						<tr>
+                        <td>8</td>
+                        <td>Voltage Regulator upto 95A</td>
+						<td><input type="text" class="8" id="qty8"  value="0"></td>
+						<td><input type="text"  class="8" id="price8"value="10" readonly></td>
+						<td><input type="text"  class="8"  id="discount8"  value="0" readonly></td>
+						<td><input type="text"  class="8"  id="cost8" readonly></td>
+						<td><input type="text"  class="8"  id="totalcost8" readonly></td>
+                    </tr>
+						
+						<tr>
+                        <td>9</td>
+                        <td>Booster Transformer Upto 66KVA</td>
+						<td><input type="text" class="9" id="qty9"  value="0"></td>
+						<td><input type="text"  class="9" id="price9" value="10" readonly></td>
+						<td><input type="text"  class="9"  id="discount9"  value="0" readonly></td>
+						<td><input type="text"  class="9"  id="cost9" readonly></td>
+						<td><input type="text"  class="9"  id="totalcost9" readonly></td>
+                    </tr>
+						<tr>
+                        <td>10</td>
+                        <td>CTs (From 2A to 18A)</td>
+						<td><input type="text" class="10" id="qty10"  value="0" ></td>
+						<td><input type="text"  class="10" id="price10" value="10" readonly></td>
+						<td><input type="text"  class="10"  id="discount10"  value="0" readonly></td>
+						<td><input type="text"  class="10"  id="cost10" readonly></td>
+						<td><input type="text"  class="10"  id="totalcost10" readonly></td>
+                    </tr>
+						<tr>
+                        <td>11</td>
+                        <td>PTs up to 11kV</td>
+					<td><input type="text" class="11" id="qty11"  value="0"></td>
+						<td><input type="text"  class="11" id="price11" value="10" readonly></td>
+						<td><input type="text"  class="11"  id="discount11"  value="0" readonly></td>
+						<td><input type="text"  class="11"  id="cost11" readonly></td>
+						<td><input type="text"  class="11"  id="totalcost11" readonly></td>
+                    </tr>
+						<tr>
+                        <td >12</td>
+                        <td>Power Analyzer(Harmonic)</td>
+						<td><input type="text" class="12" id="qty12"  value="0"></td>
+						<td><input type="text"  class="12" id="price12" value="10" readonly></td>
+						<td><input type="text"  class="12"  id="discount12"  value="0" readonly></td>
+						<td><input type="text"  class="12"  id="cost12" readonly></td>
+						<td><input type="text"  class="12"  id="totalcost12" readonly></td>
+                    </tr>
+						<tr>
+                        <td>13</td>
+                        <td>Isolator Switch (For Temperature Rise Test) upto 20A</td>
+						<td><input type="text" class="13" id="qty13"  value="0"></td>
+						<td><input type="text"  class="13" id="price13" value="10" readonly></td>
+						<td><input type="text"  class="13"  id="discount13"  value="0" readonly></td>
+						<td><input type="text"  class="13"  id="cost13" readonly></td>
+						<td><input type="text"  class="13"  id="totalcost13" readonly></td>
+                    </tr>
+						<tr>
+                        <td >14</td>
+                        <td>Temperature Scanner</td>
+						<td><input type="text" class="14" id="qty14"  value="0"></td>
+						<td><input type="text"  class="14" id="price14" value="10" readonly></td>
+						<td><input type="text"  class="14"  id="discount14"  value="0" readonly></td>
+						<td><input type="text"  class="14"  id="cost14" readonly></td>
+						<td><input type="text"  class="14"  id="totalcost14" readonly></td>
+                    </tr>
+                    </tr>
+						<tr>
+                        <td>15</td>
+                        <td>RTD PT 100 Sensor</td>
+						<td><input type="text" class="15" id="qty15"  value="0"></td>
+						<td><input type="text"  class="15" id="price15" value="10" readonly></td>
+						<td><input type="text"  class="15"  id="discount15"  value="0" readonly></td>
+						<td><input type="text"  class="15"  id="cost15" readonly></td>
+						<td><input type="text"  class="15"  id="totalcost15" readonly></td>
+                    </tr>
+                    </tr>
+					 </tr>
+						<tr>
+                        <td>16</td>
+                        <td>Multimeter</td>
+						<td><input type="text" class="16" id="qty16"  value="0"></td>
+						<td><input type="text"  class="16" id="price16" value="10" readonly></td>
+						<td><input type="text"  class="16"  id="discount16"  value="0" readonly></td>
+						<td><input type="text"  class="16"  id="cost16" readonly></td>
+						<td><input type="text"  class="16"  id="totalcost16" readonly></td>
+                    </tr>
+                    </tr>
+					 </tr>
+						<tr>
+                        <td>17</td>
+                        <td>Impulse Tester</td>
+						<td><input type="text" class="17" id="qty17"  value="0"></td>
+						<td><input type="text"  class="17" id="price17" value="10" readonly></td>
+						<td><input type="text"  class="17"  id="discount17"  value="0" readonly></td>
+						<td><input type="text"  class="17"  id="cost17" readonly></td>
+						<td><input type="text"  class="17"  id="totalcost17" readonly></td>
+                    </tr>
+                    </tr>
+					 </tr>
+						<tr>
+                        <td >18</td>
+                        <td>PD Tester</td>
+						<td><input type="text" class="18" id="qty18"  value="0"></td>
+						<td><input type="text"  class="18" id="price18" value="10" readonly></td>
+						<td><input type="text"  class="18"  id="discount18"  value="0" readonly></td>
+						<td><input type="text"  class="18"  id="cost18" readonly></td>
+						<td><input type="text"  class="18"  id="totalcost18" readonly></td>
+                    </tr>
+					<tr>
+                       <td></td>
+					   <td></td>
+					   <td></td>
+					   <td></td>
+                        <td>Total Cost:</td>
+						<td></td>
+						<td><input type="text" id="total" value="0" readonly></td>
+                 
+                    </tr>
+					<tr>
+                       <td></td>
+					   <td></td>
+					   <td></td>
+					   <td></td>
+                        <td>Contr (Overall & Net):</td>
+						<td><input type="text" value="10" readonly></td>
+						<td><input type="text" id="contr" value="0" readonly></td>
+                    </tr>
+					<tr>
+                       <td></td>
+					   <td></td>
+					   <td></td>
+					   <td></td>
+                        <td>Offer:</td>
+						<td></td>
+						<td><input type="text" id="offer" value="0" readonly></td>
+                 
+                    </tr>
+
+                </table>
+				
+                    <div class="button">             
+						  <input id="btn" type="button" value="Calculate" onclick="cal()"> 
+						  <button onclick="window.print()">Print</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+	</section>
+	<footer>
+		<p>&copy; 2023 Transformer Testing System</p>
+	</footer>
+    <script>
+      function home(){
+         window.open("/",'_self');
+      }
+	 
+		
+	 function cal() {
+		
+		var qty = parseInt(document.getElementById('qty1').value);
+		var price = parseFloat(document.getElementById('price1').value);
+		var discount = parseFloat(document.getElementById('discount1').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost1').value = cost;
+		var totalcost1 = qty * cost;
+		document.getElementById('totalcost1').value =  totalcost1 ;
+
+		qty = parseInt(document.getElementById('qty2').value);
+		price = parseFloat(document.getElementById('price2').value);
+		discount = parseFloat(document.getElementById('discount2').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost2').value = cost;
+		var  totalcost2 = qty * cost;
+		document.getElementById('totalcost2').value =  totalcost2;
+
+		qty = parseInt(document.getElementById('qty3').value);
+		price = parseFloat(document.getElementById('price3').value);
+		discount = parseFloat(document.getElementById('discount3').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost3').value = cost;
+		var totalcost3 = qty * cost;
+		document.getElementById('totalcost3').value =  totalcost3;
+
+		qty = parseInt(document.getElementById('qty4').value);
+		price = parseFloat(document.getElementById('price4').value);
+		discount = parseFloat(document.getElementById('discount4').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost4').value = cost;
+		var totalcost4 = qty * cost;
+		document.getElementById('totalcost4').value =totalcost4;
+
+		qty = parseInt(document.getElementById('qty5').value);
+		price = parseFloat(document.getElementById('price5').value);
+		discount = parseFloat(document.getElementById('discount5').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost5').value = cost;
+		var totalcost5 = qty * cost;
+		document.getElementById('totalcost5').value = totalcost5;
+
+		qty = parseInt(document.getElementById('qty6').value);
+		price = parseFloat(document.getElementById('price6').value);
+		discount = parseFloat(document.getElementById('discount6').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost6').value = cost;
+		var totalcost6 = qty * cost;
+		document.getElementById('totalcost6').value = totalcost6;
+
+		qty = parseInt(document.getElementById('qty7').value);
+		price = parseFloat(document.getElementById('price7').value);
+		discount = parseFloat(document.getElementById('discount7').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost7').value = cost;
+		var totalcost7 = qty * cost;
+		document.getElementById('totalcost7').value = totalcost7;
+
+		qty = parseInt(document.getElementById('qty8').value);
+		price = parseFloat(document.getElementById('price8').value);
+		discount = parseFloat(document.getElementById('discount8').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost8').value = cost;
+		var totalcost8 = qty * cost;
+		document.getElementById('totalcost8').value = totalcost8;
+
+		qty = parseInt(document.getElementById('qty9').value);
+		price = parseFloat(document.getElementById('price9').value);
+		discount = parseFloat(document.getElementById('discount9').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost9').value = cost;
+		var totalcost9 = qty * cost;
+		document.getElementById('totalcost9').value = totalcost9;
+
+		qty = parseInt(document.getElementById('qty10').value);
+		price = parseFloat(document.getElementById('price10').value);
+		discount = parseFloat(document.getElementById('discount10').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost10').value = cost;
+		var totalcost10 = qty * cost;
+		document.getElementById('totalcost10').value = totalcost10;
+
+		qty = parseInt(document.getElementById('qty11').value);
+		price = parseFloat(document.getElementById('price11').value);
+		discount = parseFloat(document.getElementById('discount11').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost11').value = cost;
+		var totalcost11 = qty * cost;
+		document.getElementById('totalcost11').value = totalcost11;
+
+		qty = parseInt(document.getElementById('qty12').value);
+		price = parseFloat(document.getElementById('price12').value);
+		discount = parseFloat(document.getElementById('discount12').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost12').value = cost;
+		var totalcost12 = qty * cost;
+		document.getElementById('totalcost12').value = totalcost12;
+
+
+		qty = parseInt(document.getElementById('qty13').value);
+		price = parseFloat(document.getElementById('price13').value);
+		discount = parseFloat(document.getElementById('discount13').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost13').value = cost;
+		var totalcost13 = qty * cost;
+		document.getElementById('totalcost13').value =totalcost13;
+
+ 		qty = parseInt(document.getElementById('qty14').value);
+		price = parseFloat(document.getElementById('price14').value);
+		discount = parseFloat(document.getElementById('discount14').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost14').value = cost;
+		var totalcost14 = qty * cost;
+		document.getElementById('totalcost14').value =totalcost14;
+
+		qty = parseInt(document.getElementById('qty15').value);
+		price = parseFloat(document.getElementById('price15').value);
+		discount = parseFloat(document.getElementById('discount15').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost15').value = cost;
+		var totalcost15 = qty * cost;
+		document.getElementById('totalcost15').value =totalcost15;
+
+		qty = parseInt(document.getElementById('qty16').value);
+		price = parseFloat(document.getElementById('price16').value);
+		discount = parseFloat(document.getElementById('discount16').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost16').value = cost;
+		var totalcost16 = qty * cost;
+		document.getElementById('totalcost16').value = totalcost16;
+
+		 qty = parseInt(document.getElementById('qty17').value);
+		price = parseFloat(document.getElementById('price17').value);
+		discount = parseFloat(document.getElementById('discount17').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost17').value = cost;
+		var totalcost17= qty * cost;
+		document.getElementById('totalcost17').value =totalcost17;
+
+		 qty = parseInt(document.getElementById('qty18').value);
+		price = parseFloat(document.getElementById('price18').value);
+		discount = parseFloat(document.getElementById('discount18').value);
+		cost = price-(price*(discount/100));
+		document.getElementById('cost18').value = cost;
+		var totalcost18 = qty * cost;
+		document.getElementById('totalcost18').value = totalcost18;
+
+		var total=totalcost1+totalcost2+totalcost3+totalcost4+totalcost5+totalcost6+totalcost7+totalcost8+totalcost9+totalcost10+totalcost11+totalcost12+totalcost13+totalcost14+totalcost15+totalcost16+totalcost17+totalcost18;
+		document.getElementById("total").value=total;
+		
+		var contr=total*(10/100) ;
+		document.getElementById("contr").value=contr;
+
+		var offer=total+contr;
+		document.getElementById("offer").value=offer;
+
+
+	 }
+
+
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  let btn = document.querySelector('#btn');
+  btn.addEventListener('click', async function(e) {
+  		e.preventDefault();
+    });
+
+    try {
+      const response = await axios.post('/BOM', BOMData);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+</script>
+
+</body>
+</html>
